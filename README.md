@@ -4,6 +4,10 @@ A complete microservice toolkit for .NET developers
 
 Vostok has everything .NET developers need to create distributes systems. It provides intra-cluster communication between microservices and collects their logs, metrics, and distributes traces out of the box.
 
+## Blueprint
+
+![](blueprint.png)
+
 ## Features
 
 **Feature complete.** Vostok has everything to create, monitor and troubleshoot microservices. No other tools or libraries are required.
