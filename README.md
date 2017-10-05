@@ -22,13 +22,13 @@ Vostok has everything .NET developers need to create distributes systems. It pro
 
 ### Run a sample Vostok-enabled application
 
-1. Run an all-in-one Vostok bundle with Docker. It includes *[Airlock Gate](https://github.com/vostok/airlock.gate)*, *Kafka*, all *[Airlock Consumers](https://github.com/vostok/airlock.consumer)*, *Graphite*, *Grafana*, *RabbitMQ*, *Elasticsearch*, *Logstash*, *Kibana*, *Cassandra*, and *[Contrails](https://github.com/vostok/contrails)*.
+Run an all-in-one Vostok bundle with Docker. It includes *[Airlock Gate](https://github.com/vostok/airlock.gate)*, *Kafka*, all *[Airlock Consumers](https://github.com/vostok/airlock.consumer)*, *Graphite*, *Grafana*, *RabbitMQ*, *Elasticsearch*, *Logstash*, *Kibana*, *Cassandra*, and *[Contrails](https://github.com/vostok/contrails)*.
 
 ```sh
 docker run vostok/spaceport
 ```
 
-2. Get a [sample application](https://github.com/vostok/sample). It contains several Vostok-enabled microservices which send logs, metrics, and traces to *Airlock Gate* via their *[Airlock Clients](https://github.com/vostok/airlock.client)*.
+Get a [sample application](https://github.com/vostok/sample). It contains several Vostok-enabled microservices which send logs, metrics, and traces to *Airlock Gate* via their *[Airlock Clients](https://github.com/vostok/airlock.client)*.
 
 ```sh
 git clone https://github.com/vostok/sample.git && \
@@ -36,7 +36,7 @@ cd sample && \
 dotnet run
 ```
 
-3. Navigate to the sample application in your web browser. Then have a look at *Kibana* for logs, *Grafana* for metrics, and *Contrails* for traces:
+Navigate to the sample application in your web browser. Then have a look at *Kibana* for logs, *Grafana* for metrics, and *Contrails* for traces:
 
 ```sh
 open http://localhost:5000 && \
@@ -47,28 +47,30 @@ open http://localhost:5300
 
 ### Create your first Vostok-enabled application
 
-0. Run the all-in-one Vostok bundle, as described above, or setup a [stand-alone Vostok installation](#).
+Run the all-in-one Vostok bundle, as described above, or setup a [stand-alone Vostok installation](#).
 
-1. Install *[Launchpad](https://github.com/vostok/launchpad)*, a CLI tool for Vostok.
+Install *[Launchpad](https://github.com/vostok/launchpad)*, a CLI tool for Vostok. On Windows, download this [MSI package](#).
 
-* On Windows, download this [MSI package](#).
-* On Ubuntu, use Aptitude:
-  ```sh
-  apt-get install vostok
-  ```
-* On macOS, use Homebrew:
-  ```sh
-  brew install vostok
-  ```
+On Ubuntu, use Aptitude:
 
-2. Create and run a .NET Core microservice with Vostok instrumentation:
+```sh
+apt-get install vostok
+```
+
+On macOS, use Homebrew:
+
+```sh
+brew install vostok
+```
+
+Create and run a .NET Core microservice with Vostok instrumentation:
 
 ```sh
 vostok create --name "vostok-one-app" --output "." && \
 dotnet run
 ```
 
-3. Navigate to the microservice in your web browser. Then have a look at *Kibana* for logs, *Grafana* for metrics, and *Contrails* for traces:
+Navigate to the microservice in your web browser. Then have a look at *Kibana* for logs, *Grafana* for metrics, and *Contrails* for traces:
 
 ```sh
 open http://localhost:33333 && \
