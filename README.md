@@ -24,12 +24,12 @@ Microservices send all logs, metrics, and traces via their *[Airlock Clients](ht
 
 Events are either transformed and put back to Kafka, or transferred to backends:
 
-* *Logs* consumer transfer logs to Elasticsearch
+* *Logs* consumer transfers logs to Elasticsearch
 * *Metrics Aggregator* calculates aggregated metrics and puts them to Kafka
-* *Metrics* consumer transfer metrics to Graphite
-* *Traces* consumer transfer traces to Cassandra
+* *Metrics* consumer transfers metrics to Graphite
+* *Traces* consumer transfers traces to Cassandra
 
-Backends store the data and feed it end-user applications. Developers use them to monitor the distributed system as a whole:
+Backends store the data and feed it to end-user applications. Developers use them to monitor the distributed system as a whole:
 
 * view and search logs in Kibana
 * view and plot metrics in Grafana
@@ -47,7 +47,7 @@ Backends store the data and feed it end-user applications. Developers use them t
 
 ---
 
-*Everything below this line is work-in-progress.*
+*Everything below is work-in-progress.*
 
 <br>
 
@@ -83,7 +83,7 @@ Navigate to [localhost:5000](http://localhost:5000) to see that it works. You sh
 
 ### Create your first Vostok-enabled application
 
-Run the all-in-one Vostok bundle, as described above, or setup a [stand-alone Vostok installation](#).
+Run the all-in-one Vostok bundle, as described above, or setup a [standalone Vostok installation](#).
 
 Install *[Launchpad](https://github.com/vostok/launchpad)*, a CLI tool for Vostok.
 
