@@ -18,6 +18,15 @@ Vostok has everything .NET developers need to create distributes systems. It pro
 
 **Fast by design.** Vostok is benchmarked and optimized for performance and throughput. No expensive hardware is required. Commodity servers are just fine for complementary services.
 
+
+<br>
+
+---
+
+*Everything below this line is work-in-progress.*
+
+<br>
+
 ## Getting started
 
 ### Run a sample Vostok-enabled application
@@ -36,7 +45,7 @@ cd sample && \
 dotnet run
 ```
 
-Navigate to the sample application in your web browser. Then have a look at *Kibana* for logs, *Grafana* for metrics, and *Contrails* for traces:
+Navigate to the sample application via your web browser. Then have a look at *Kibana* for logs, *Grafana* for metrics, and *Contrails* for traces:
 
 ```sh
 open http://localhost:5000 && \
@@ -70,7 +79,7 @@ vostok create --name "vostok-one-app" --output "." && \
 dotnet run
 ```
 
-Navigate to the microservice in your web browser. Then have a look at *Kibana* for logs, *Grafana* for metrics, and *Contrails* for traces:
+Navigate to the microservice via your web browser. Then have a look at *Kibana* for logs, *Grafana* for metrics, and *Contrails* for traces:
 
 ```sh
 open http://localhost:33333 && \
