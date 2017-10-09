@@ -4,19 +4,19 @@
 
 *A complete microservice toolkit for .NET developers.*
 
-Vostok has everything .NET developers need to create distributes systems. It enables intra-cluster interaction between microservices and collects their logs, metrics, and distributes traces out of the box. Vostok supports .NET Core 2.0, .NET WebAPI, and more.
+Vostok has everything .NET developers need to create distributed systems. It enables intra-cluster interaction between microservices, collects their logs and metrics, and distributes traces out of the box. Vostok supports .NET Core 2.0, .NET WebAPI etc.
 
 ## How it works
 
-Vostok provides instrumentation for microservices and a number of complementary services. Instrumentation is required to collect data which is necessary for any production-ready distributed system:
+Vostok provides instrumentation for microservices and a number of complementary services. Instrumentation is required to collect any data necessary for a production-ready distributed system:
 
 * logs for application lifecycle
 * metrics for resource usage
 * traces for intra-cluster interaction
 
-Every Vostok-instrumented microservice collects described data out of the box. No additional confuguration or code is required.
+Every Vostok-instrumented microservice collects that data types out of the box. No additional confuguration or code is required.
 
-Applications would use provided interfaces to write custom logs and metrics. Any outgoing requests via provided *[Cluster Client](https://github.com/vostok/clusterclient)* would be included to collected distributed traces. These include requests to Vostok-instrumented applications (e.g., other microservices) and non-instrumented applications (e.g., databases or external APIs).
+Applications use Vostok's interfaces to make custom logs and metrics. Any outgoing request via provided *[Cluster Client](https://github.com/vostok/clusterclient)* is included to the distributed traces collected by the service. Included are the requests to the Vostok-instrumented applications (e.g., other microservices) and the non-instrumented applications (e.g., databases or external APIs).
 
 ![](blueprint.png)
 
