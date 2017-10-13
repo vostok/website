@@ -4,7 +4,7 @@
 
 *A complete microservice toolkit for .NET developers.*
 
-Vostok has everything .NET developers need to create distributes systems. It enables intra-cluster interaction between microservices and collects their logs, metrics, and distributes traces out of the box. Vostok supports .NET Core 2.0, .NET WebAPI, and more.
+Vostok has everything .NET developers need to create distributed systems. It enables intra-cluster interaction between microservices and collects their logs, metrics, and distributes traces out of the box. Vostok supports .NET Core 2.0, .NET WebAPI etc.
 
 ## How it works
 
