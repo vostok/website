@@ -1,16 +1,14 @@
-<br><br>
-
 ![Vostok](logo.png)
 
 [github.com/vostok](github.com/vostok)
 
 *A complete microservice toolkit for .NET developers.*
 
-Vostok has everything .NET developers need to create distributed systems. It enables intra-cluster interaction between microservices and collects their logs, metrics, and distributes traces out of the box. Vostok supports .NET Core 2.0, .NET WebAPI etc.
+Vostok has everything .NET developers need to create distributed systems. It enables intra-cluster interaction between microservices and collects their logs, metrics, and distributes traces out of the box. Vostok-enabled microservices are compatible with .NET Standard 2.0.
 
 ## How it works
 
-Vostok provides instrumentation for microservices and a number of complementary services. Instrumentation is required to collect data which is necessary for any production-ready distributed system:
+Vostok provides instrumentation for microservices and a number of Vostok infrastructure components. Instrumentation is required to collect data which is necessary for any production-ready distributed system:
 
 * logs for application lifecycle
 * metrics for resource usage
@@ -18,11 +16,11 @@ Vostok provides instrumentation for microservices and a number of complementary 
 
 Every Vostok-instrumented microservice collects described data out of the box. No additional confuguration or code is required.
 
-Applications would use provided interfaces to write custom logs and metrics. Any outgoing requests via provided *[Cluster Client](https://github.com/vostok/clusterclient)* would be included to collected distributed traces. These include requests to Vostok-instrumented applications (e.g., other microservices) and non-instrumented applications (e.g., databases or external APIs).
+Applications would use provided interfaces to write custom logs and metrics. Any outgoing requests via provided [Cluster Client](https://github.com/vostok/clusterclient) would be included to collected distributed traces. These include requests to Vostok-instrumented applications (e.g., other microservices) and non-instrumented applications (e.g., databases or external APIs).
 
 ![](blueprint.png)
 
-Microservices send all logs, metrics, and traces via their *[Airlock Clients](https://github.com/vostok/airlock.client)* to the *[Airlock Gate](https://github.com/vostok/airlock.client)*. This [ridiculuosly performant](https://github.com/vostok/core/issues/3) service puts received events to Apache Kafka. A swarm of *[Airlock Consumers](https://github.com/vostok/airlock.consumer)* read and process events from Kafka.
+Microservices send all logs, metrics, and traces via their [Airlock Clients](https://github.com/vostok/airlock.client) to the [Airlock Gate](https://github.com/vostok/airlock.client). This [ridiculuosly performant](https://github.com/vostok/core/issues/3) service puts received events to Apache Kafka. A swarm of [Airlock Consumers](https://github.com/vostok/airlock.consumer) read and process events from Kafka.
 
 Events are either transformed and put back to Kafka, or transferred to backends:
 
@@ -35,87 +33,22 @@ Backends store the data and feed it to end-user applications. Developers use the
 
 * view and search logs in Kibana
 * view and plot metrics in Grafana
-* view and explore traces in *[Contrails](https://github.com/vostok/contrails)*
+* view and explore traces in [Contrails](https://github.com/vostok/contrails)
 
 ## Features
 
 **Feature complete.** Vostok has everything to create, monitor and troubleshoot microservices. No other tools or libraries are required.
 
-**Sanely pre-configured.** Vostok has ready to use templates for your .NET Core and .NET Web API applications as well as Docker files for complementary services. Zero configuration is required to get started.
+**Sanely pre-configured.** Vostok has a ready to use template for an ASP.NET Core 2.0 application as well as Docker files for Vostok infrastructure components. Zero configuration is required to get started.
 
-**Fast by design.** Vostok is benchmarked and optimized for performance and throughput. No expensive hardware is required. Commodity servers are just fine for complementary services.
+**Fast by design.** Vostok is benchmarked and optimized for performance and throughput. No expensive hardware is required. Commodity servers are just fine for Vostok.
 
-<br><br>
+## Getting started with Vostok
 
----
+You can easily create and run your first Vostok-enabled application:
 
-*Everything below is work-in-progress.*
-
-<br>
-
-## Getting started
-
-### Run a sample Vostok-enabled application
-
-Run an all-in-one Vostok bundle with Docker. It includes *Airlock Gate*, Kafka, all *Airlock Consumers*, Graphite, Grafana, Elasticsearch, Kibana, Cassandra, and *Contrails*.
-
-```sh
-git clone https://github.com/vostok/spaceport.git
-cd spaceport
-docker-compose up
-```
-
-Complementary services would be up and running:
-
-* *Airlock Gate*
-* *Airlock Consumers*
-* Kibana — navigate to [localhost:5100](http://localhost:5100) to view logs
-* Grafana — navigate to [localhost:5200](http://localhost:5200) to view metrics
-* Contrails — navigate to [localhost:5300](http://localhost:5100) to view traces
-
-Get a [sample application](https://github.com/vostok/prototype-app). It contains several Vostok-enabled microservices which send logs, metrics, and traces to *Airlock Gate* via their *Airlock Clients*.
-
-```sh
-git clone https://github.com/vostok/prototype-app.git
-cd prototype-app
-./start.sh
-```
-
-Navigate to [localhost:5000](http://localhost:5000) to see that it works. You should see its logs in Kibana, metrics in Grafana, and traces in *Contrails*.
-
-### Create your first Vostok-enabled application
-
-Run the all-in-one Vostok bundle, as described above, or setup a [standalone Vostok installation](#).
-
-Install *[Launchpad](https://github.com/vostok/launchpad)*, a CLI tool for Vostok.
-
-On Windows, download this [MSI package](#).
-
-On Ubuntu, use Aptitude:
-
-```sh
-apt-get install vostok
-```
-
-On CentOS, use Yum:
-
-```sh
-yum install vostok
-```
-
-On macOS, use Homebrew:
-
-```sh
-brew install vostok
-```
-
-Create and run a .NET Core microservice with Vostok instrumentation:
-
-```sh
-vostok create --name "vostok-one-app"
-dotnet run
-```
-
-Navigate to [localhost:33333](http://localhost:33333) to see that it works. You should see its logs in Kibana, metrics in Grafana, and traces in *Contrails*.
+* Install and run [Spaceport](https://github.com/vostok/spaceport#spaceport), a single-host bundle with all Vostok components.
+* Install and use [Launchpad](https://github.com/vostok/launchpad#installation) to create a Vostok-instrumented application from a template.
+* Make some HTTP requests to that application and explore results in Grafana, Kibana and Contrails.
 
 <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter46187796 = new Ya.Metrika({ id:46187796, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/46187796" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
