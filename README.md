@@ -1,6 +1,6 @@
 ![Vostok](logo.png)
 
-[github.com/vostok](github.com/vostok)
+[github.com/vostok](https://github.com/vostok)
 
 *A complete microservice toolkit for .NET developers.*
 
@@ -16,11 +16,11 @@ Vostok provides instrumentation for microservices and a number of Vostok infrast
 
 Every Vostok-instrumented microservice collects described data out of the box. No additional confuguration or code is required.
 
-Applications would use provided interfaces to write custom logs and metrics. Any outgoing requests via provided [Cluster Client](https://github.com/vostok/clusterclient) would be included to collected distributed traces. These include requests to Vostok-instrumented applications (e.g., other microservices) and non-instrumented applications (e.g., databases or external APIs).
+Applications would use provided interfaces to write custom logs and metrics. Any outgoing requests via provided [Cluster Client](https://github.com/vostok/core/tree/master/Vostok.ClusterClient) would be included to collected distributed traces. These include requests to Vostok-instrumented applications (e.g., other microservices) and non-instrumented applications (e.g., databases or external APIs).
 
 ![](blueprint.png)
 
-Microservices send all logs, metrics, and traces via their [Airlock Clients](https://github.com/vostok/airlock.client) to the [Airlock Gate](https://github.com/vostok/airlock.client). This [ridiculuosly performant](https://github.com/vostok/core/issues/3) service puts received events to Apache Kafka. A swarm of [Airlock Consumers](https://github.com/vostok/airlock.consumer) read and process events from Kafka.
+Microservices send all logs, metrics, and traces via their [Airlock Clients](https://github.com/vostok/core/tree/master/Vostok.Airlock.Client) to the [Airlock Gate](https://github.com/vostok/airlock.gate). This [ridiculuosly performant](https://github.com/vostok/core/issues/3) service puts received events to Apache Kafka. A swarm of [Airlock Consumers](https://github.com/vostok/airlock.consumer) read and process events from Kafka.
 
 Events are either transformed and put back to Kafka, or transferred to backends:
 
@@ -33,7 +33,7 @@ Backends store the data and feed it to end-user applications. Developers use the
 
 * view and search logs in Kibana
 * view and plot metrics in Grafana
-* view and explore traces in [Contrails](https://github.com/vostok/contrails)
+* view and explore traces in [Contrails](https://github.com/vostok/contrails.web)
 
 ## Features
 
@@ -48,7 +48,7 @@ Backends store the data and feed it to end-user applications. Developers use the
 You can easily create and run your first Vostok-enabled application:
 
 * Install and run [Spaceport](https://github.com/vostok/spaceport#spaceport), a single-host bundle with all Vostok components.
-* Install and use [Launchpad](https://github.com/vostok/launchpad#installation) to create a Vostok-instrumented application from a template.
+* Install and use [Launchpad](https://github.com/vostok/launchpad#launchpad) to create a Vostok-instrumented application from a template.
 * Make some HTTP requests to that application and explore results in Grafana, Kibana and Contrails.
 
 <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter46187796 = new Ya.Metrika({ id:46187796, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/46187796" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
